@@ -1,0 +1,9 @@
+# HLS Retrieval URL
+hls_src="http://myserver/mychannel.m3u8"
+api_gw="https://xvsx891gz9.execute-api.us-west-2.amazonaws.com"
+
+
+# API endpoint
+# [assuming API Gateway name follows : [api-baseuri]/region/] == everything following base URL must remain the same : /Prod/input1 
+# example : apiPut("https://xvsx891gz9.execute-api.us-west-2.amazonaws.com/
+# we'll do a bulk replace using sed to update base URL of API Gateway

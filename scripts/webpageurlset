@@ -1,0 +1,3 @@
+# set correct public address in webpage
+webpage="/etc/nginx/html/mcr/softpanel.html"
+old=$(cat $webpage | grep -o rtmp.*:1935); new=rtmp:\\/\\/$(curl -s ifconfig.me):1935; oldslash=$(echo ${old////\\/}); echo $oldslash $new; sed -i 's/'$oldslash'/'$new'/g' $webpage
