@@ -108,7 +108,18 @@ We will create 6 Lambda functions in this section. Get the function code from th
 11. Repeat steps 3 to 10 for all of the functions
 
 ### Amazon API Gateway Configuration
-.
+1. Login to the AWS Management Console
+
+2. Navigate to the Amazon API Gateway Console
+
+3. Select **Create API**
+
+4. Under API Type, choose to **Import** a **REST API**
+
+5. Under Create new API, select **Import from Swagger or Open API 3**
+
+
+
 
 ### EC2 Deployment (Dashboard & MCR Host)
 1. Login to the AWS Management Console
