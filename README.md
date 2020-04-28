@@ -28,9 +28,15 @@ The architecture utilizes these AWS Services:
 ## Deployment Instructions
 Follow the below instructions to deploy each component in the workflow...
 
+1. IAM Role Configuration
+
+1. AWS Lambda Functions Configuration
+
+1. Amazon API Gateway Configuration
+
 1. EC2 Deployment
 
-1. IAM Role Configuration
+1. EC2 Server Configuration with API Endpoints
 
 1. AWS Elemental MediaPackage Configuration
 
@@ -38,11 +44,11 @@ Follow the below instructions to deploy each component in the workflow...
 
 1. AWS Elemental MediaLive Configuration
 
-1. AWS Lambda Functions Configuration
+### AWS Lambda Functions Configuration
+.
 
-1. Amazon API Gateway Configuration
-
-1. EC2 Server Configuration with API Endpoints
+### Amazon API Gateway Configuration
+.
 
 ### EC2 Deployment (Dashboard & MCR Host)
 1. Login to the AWS Management Console
