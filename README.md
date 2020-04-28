@@ -103,7 +103,7 @@ We will create 6 Lambda functions in this section. Get the function code from th
 
 ![](readme_images/lam3.png)
 
-10. Select the **Save** button
+10. Select the **Save** button and return to the Functions dashboard.
 
 11. Repeat steps 3 to 10 for all of the functions
 
