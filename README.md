@@ -44,8 +44,68 @@ Follow the below instructions to deploy each component in the workflow...
 
 1. AWS Elemental MediaLive Configuration
 
-### AWS Lambda Functions Configuration
+### IAM Roles Creation
+We need to create a lot of Service roles in order for the AWS Services to work as expected. The list of Roles include:
+
+1. AWS Lambda Role - Attach polices for APIGatewayInvoke, MediaLive, ElasticSearch, and S3 access
+
+1. AWS Elemental MediaConnect Role - Attach policies for VPC access
+
+1. AWS Elemental Live Role - Attach policies for S3, SSM, MediaPackage, EC2, CloudWatch, MediaStore, MediaConnect, VPC
+
+1. Amazon EC2 (optional) - Attach policies for S3, and ElasticSearch access
+
+#### AWS Lambda Role
 .
+
+#### AWS Elemental MediaConnect Role
+.
+
+#### AWS Elemental Live Role
+.
+
+#### Amazon EC2 (optional)
+.
+
+### AWS Lambda Functions Configuration
+We will create 6 Lambda functions in this section. Get the function code from the /lambdafunctions directory in this repository
+
+1. Login to the AWS Management Console
+
+2. Navigate to the AWS Lambda Console
+
+3. Under Functions, select **Create Function**
+
+4. Select **Author from scratch**
+
+5. Give the Function a Name, please stick to this format:
+
+| Function Name       | Runtime         | Zip file                |
+| ------------------- | --------------- | ----------------------- |
+| eml_immediateSwitch | python 3.7      | eml_immediateSwitch.zip
+| eml_followCurrent   | python 3.7      | eml_followCurrent.zip
+| eml_followCustom    | python 3.7      | eml_followCustom.zip
+| eml_followLast      | python 3.7      | eml_followLast.zip
+| eml_getSchedule     | python 3.7      | eml_getSchedule.zip
+| s3_getAssetList     | python 3.7      | s3_getAssetList.zip
+
+6. Under **Permissions**, select 'Use an existing role', and then choose the role created earlier : **AWSLambdaAccessToS3AndEML**
+
+![](readme_images/lam1.png)
+
+7. Select **Create Function**
+
+8. Under the **Function Code** section, change the 'Code entry type' to **Upload a zip file**. Select the Upload button and browse to the ZIP file for this function.
+
+![](readme_images/lam2.png)
+
+9. After the code has imported, scroll down to the **Basic Settings** section, press the 'Edit' button and change the Timeout value to 2 minutes.
+
+![](readme_images/lam3.png)
+
+10. Select the **Save** button
+
+11. Repeat steps 3 to 10 for all of the functions
 
 ### Amazon API Gateway Configuration
 .
@@ -153,20 +213,3 @@ http://[Public DNS or IPv4 IP]/mcr/softpanel.html
 
 Example:
 http://ec2-52-24-130-125.us-west-2.compute.amazonaws.com/mcr/softpanel.html
-
-### IAM Roles Creation
-We need to create a lot of Service roles in order for the AWS Services to work as expected. The list of Roles include:
-
-1. AWS Lambda Role - Attach polices for APIGatewayInvoke, MediaLive, ElasticSearch, and S3 access
-
-1. AWS Elemental MediaConnect Role - Attach policies for VPC access
-
-1. AWS Elemental Live Role - Attach policies for S3, SSM, MediaPackage, EC2, CloudWatch, MediaStore, MediaConnect, VPC
-
-1. Amazon EC2 (optional) - Attach policies for S3, and ElasticSearch access
-
-#### AWS Elemental MediaConnect Role
-
-#### AWS Elemental Live Role
-
-#### Amazon EC2 (optional)
