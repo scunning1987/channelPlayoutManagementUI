@@ -14,6 +14,7 @@ yum -y install vim tcpdump wget git
 yum -y install nginx
 yum -y groupinstall "Development Tools"
 yum -y install pcre-devel openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel
+yum -y remove nginx
 #
 # get nginx installer
 #wget http://nginx.org/download/nginx-1.14.0.tar.gz
