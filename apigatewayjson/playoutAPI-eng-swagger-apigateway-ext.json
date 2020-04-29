@@ -53,7 +53,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:722502882884:function:eml_followCurrent/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:eml_followCurrent/invocations",
           "responses": {
             "default": {
               "statusCode": "200"
@@ -167,7 +167,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:722502882884:function:eml_followCustom/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:eml_followCustom/invocations",
           "responses": {
             "default": {
               "statusCode": "200",
@@ -272,7 +272,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:722502882884:function:eml_followLast/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:eml_followLast/invocations",
           "responses": {
             "default": {
               "statusCode": "200",
@@ -371,7 +371,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:722502882884:function:eml_getSchedule/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:eml_getSchedule/invocations",
           "responses": {
             "default": {
               "statusCode": "200",
@@ -482,7 +482,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:722502882884:function:eml_immediateSwitch/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:eml_immediateSwitch/invocations",
           "responses": {
             "default": {
               "statusCode": "200",
@@ -575,7 +575,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:722502882884:function:s3_getAssetList/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:s3_getAssetList/invocations",
           "responses": {
             "default": {
               "statusCode": "200",

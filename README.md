@@ -108,18 +108,41 @@ We will create 6 Lambda functions in this section. Get the function code from th
 11. Repeat steps 3 to 10 for all of the functions
 
 ### Amazon API Gateway Configuration
-1. Login to the AWS Management Console
+1. Open the 'playoutAPI-eng-swagger-apigateway-ext.json' file in the apigatewayjson directory of this repo. Do a Find and Replace on all occurrences of : '112233445566' Replace this number with your AWS account number that is hosting the AWS Lambda Functions. There should be 6 occurrences.
 
-2. Navigate to the Amazon API Gateway Console
+*You can find your account number in the AWS console, under the account drop-down menu*
 
-3. Select **Create API**
+![](readme_images/api1.png)
 
-4. Under API Type, choose to **Import** a **REST API**
+2. Login to the AWS Management Console
 
-5. Under Create new API, select **Import from Swagger or Open API 3**
+3. Navigate to the Amazon API Gateway Console
 
+4. Select **Create API**
 
+5. Under API Type, choose to **Import** a **REST API**
 
+![](readme_images/api2.png)
+
+6. Under Choose the protocol, select **REST**, and under Create new API, select **Import from Swagger or Open API 3**. Then paste the contents from the edited 'playoutAPI-eng-swagger-apigateway-ext.json' file
+
+7. Select **Import**
+
+![](readme_images/api3.png)
+
+8. To verify that the API endpoints correspond to your AWS Lambda functions, click on the PUT or GET 'Method' below each Resource, then select the AWS Lambda function hyperlink on the right hand side of the Execution flow. Clicking the link should open up your Lambda function.
+
+9. To deploy the API, click on the root slash, then the **Actions** button, followed by **Deploy API**
+
+![](readme_images/api4.png)
+
+10. In the **Deploy API** options, choose to create a new 'Deployment Stage', call it 'eng'. Optionally, give the stage a description.
+
+![](readme_images/api5.png)
+
+11. Click on **Save Changes** and take note of the **Invoke URL**, this is the API endpoint that's needed in the EC2 Server Configuration section of these instructions.
+
+![](readme_images/api6.png)
 
 ### EC2 Deployment (Dashboard & MCR Host)
 1. Login to the AWS Management Console
