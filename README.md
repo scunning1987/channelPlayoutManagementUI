@@ -149,15 +149,25 @@ We will create 6 Lambda functions in this section. Get the function code from th
 
 8. To verify that the API endpoints correspond to your AWS Lambda functions, click on the PUT or GET 'Method' below each Resource, then select the AWS Lambda function hyperlink on the right hand side of the Execution flow. Clicking the link should open up your Lambda function.
 
-9. To deploy the API, click on the root slash, then the **Actions** button, followed by **Deploy API**
+9. In order for API Gateway to be granted access to execute the AWS Lambda functions, you have to edit and save the function in the **Integration Request** execution settings. Under **Resources** click on the GET or PUT Method for the Resource, then select **Integration Request**. Click on the pencil next to the **Lambda Function** field, and then press the tickbox. Then click OK. API Gateway now has permissions to execute the Lambda function.
+
+![](readme_images/api7.png)
+
+![](readme_images/api8.png)
+
+![](readme_images/api9.png)
+
+10. Repeat the above step for all API Resources
+
+10. To deploy the API, click on the root slash, then the **Actions** button, followed by **Deploy API**
 
 ![](readme_images/api4.png)
 
-10. In the **Deploy API** options, choose to create a new 'Deployment Stage', call it 'eng'. Optionally, give the stage a description.
+11. In the **Deploy API** options, choose to create a new 'Deployment Stage', call it 'eng'. Optionally, give the stage a description.
 
 ![](readme_images/api5.png)
 
-11. Click on **Save Changes** and take note of the **Invoke URL**, this is the API endpoint that's needed in the EC2 Server Configuration section of these instructions.
+12. Click on **Save Changes** and take note of the **Invoke URL**, this is the API endpoint that's needed in the EC2 Server Configuration section of these instructions.
 
 ![](readme_images/api6.png)
 
