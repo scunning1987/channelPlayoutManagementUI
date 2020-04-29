@@ -55,8 +55,25 @@ We need to create a lot of Service roles in order for the AWS Services to work a
 
 1. Amazon EC2 (optional) - Attach policies for S3, and ElasticSearch access
 
+All of the below Roles will be added using the AWS Console, so log into your account and navigate to the IAM 
+
 #### AWS Lambda Role
-.
+1. In the IAM Console, select **Roles** from the navigation pane and then the 'Create Role' button
+
+2. Under 'Trusted entity', select **AWS Service**, then select 'Lambda' from the available services displayed. Click **Next: Permissions** 
+
+3. Search for 'S3ReadOnlyAccess', tick the box to the left of the result to add this policy to the role. Then clear the search box and select **Create Policy**, this will open a new tab to create a custom policy.
+
+4. Under **Service**, search for and select 'MediaLive', under **Actions** select 'All MediaLive Actions'. Under **Resources** select 'All resources', then select **Review Policy**
+
+![](readme_images/iam1.png)
+
+5. Call the policy 'MediaLiveFullAccess', then select **Create policy**
+
+6. Go back to the Create role tab in your browser, select the refresh button and then tick the box to the left of the result
+
+![](readme_images/iam2.png)
+
 
 #### AWS Elemental MediaConnect Role
 .
