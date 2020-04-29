@@ -266,7 +266,7 @@ Now our EC2 Web & RTMP Server is up and running! Please take note of some inform
 | ------------ | ------------------------------------------------- |
 | 172.1.2.3    | ec2-52-24-130-125.us-west-2.compute.amazonaws.com |
 
-*Note: If you turn off your instance and then turn it back on, it will have been assigned a new Public IPv4 and DNS address. The private IP address does not change, however.*
+*Note: If you turn off your instance and then turn it back on, it will be assigned a new Public IPv4 and DNS address. The private IP address does not change, however.*
 
 After a few minutes you can validate that the server had all its applications installed successfully by trying to load the UI in your browser:
 
@@ -297,3 +297,12 @@ const apiendpointurl = "https://940r6t3ds2.execute-api.us-west-2.amazonaws.com/e
 ```
 
 *Note: you will need to refresh your browser for any of these changes to take effect on your dashboard page, and you may even require a cache clear*
+
+### AWS Elemental MediaPackage Configuration
+Optional
+
+### AWS Elemental MediaConnect Configuration
+Optional
+
+### AWS Elemental MediaLive Configuration
+Optional
