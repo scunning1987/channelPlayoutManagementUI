@@ -4,7 +4,7 @@
     "version": "2020-04-24T19:59:46Z",
     "title": "playoutAPI"
   },
-  "host": "940r6t3vd9.execute-api.us-west-2.amazonaws.com",
+  "host": "7h8bbsirvf.execute-api.us-west-2.amazonaws.com",
   "basePath": "/eng",
   "schemes": [
     "https"
@@ -246,13 +246,19 @@
             "type": "string"
           },
           {
-            "name": "bucket",
+            "name": "maxresults",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "channelid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bucket",
             "in": "query",
             "required": false,
             "type": "string"
@@ -284,7 +290,7 @@
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
           "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\"\n}"
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\"\n}"
           },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
