@@ -1,7 +1,7 @@
 # Channel Playout Management UI
 This repo contains all of the tools and instructions necessary for you to deploy and build an HTML dashboard, capable of interfacing with, and creating a playout schedule for AWS Elemental MediaLive. This is what the finished product will look like!
 
-![](readme_images/ux1.png)
+![](readme_images/ux1.png?width=35pc&classes=border,shadow)
 
 ## Assumptions
 These instructions assume that:
@@ -23,7 +23,7 @@ The architecture utilizes these AWS Services:
 - AWS Lambda
 - IAM
 
-![](readme_images/ux2.png)
+![](readme_images/ux2.png?width=35pc&classes=border,shadow)
 
 ## Deployment Instructions
 Follow the below instructions to deploy each component in the workflow...
@@ -49,9 +49,9 @@ We need to create a lot of Service roles in order for the AWS Services to work a
 
 1. AWS Lambda Role - Attach polices for APIGatewayInvoke, MediaLive, ElasticSearch, and S3 access
 
-1. AWS Elemental MediaConnect Role - Attach policies for VPC access
-
 1. AWS Elemental Live Role - Attach policies for S3, SSM, MediaPackage, EC2, CloudWatch, MediaStore, MediaConnect, VPC
+
+1. AWS Elemental MediaConnect Role - Attach policies for VPC access
 
 1. Amazon EC2 (optional) - Attach policies for S3, and ElasticSearch access
 
@@ -74,15 +74,153 @@ All of the below Roles will be added using the AWS Console, so log into your acc
 
 ![](readme_images/iam2.png)
 
+7. Click on **Next: Tags**
 
-#### AWS Elemental MediaConnect Role
-.
+8. Click on **Next: Review**
+
+9. In the **Role name** field, enter 'AWSLambdaAccessToS3AndEML'
+
+10. Select **Create role**
 
 #### AWS Elemental Live Role
-.
+The best way to create a MediaLive role with the right policies is to first get MediaLive to create a role automatically. We will then go and edit the role to contain what we need.
+
+1. In the AWS console, search for MediaLive and select the result to go to the MediaLive Console.
+
+1. Click on **Create Channel**, don't worry, we're not actually going to create the channel 
+
+![](readme_images/iam3.png)
+
+3. Under **Create Channel**, click on **Channel and input details**
+
+3. Click on **Create role from template**, then the **Create IAM role** button
+
+![](readme_images/iam4.png)
+
+5. You will see a role has been successfully created
+
+![](readme_images/iam5.png)
+
+6. Don't go any further in the channel configuration, instead, navigate to the IAM console.
+
+6. Go to the **Roles** section and search for the role that MediaLive just created, it should be called 'MediaLiveAccessRole'. Click on the returned result.
+
+![](readme_images/iam6.png)
+
+8. In the Permissions tab, click on the **MediaLiveCustomPolicy**, then select the **Edit Policy** button.
+
+![](readme_images/iam7.png)
+
+9. In the Policy editor, select the **JSON** tab, then paste the contents of the below json block into the editor.
+
+![](readme_images/iam8.png)
+
+Policy json code block:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket",
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:DeleteObject"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "mediastore:ListContainers",
+                "mediastore:PutObject",
+                "mediastore:GetObject",
+                "mediastore:DeleteObject",
+                "mediastore:DescribeObject"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:DescribeLogStreams",
+                "logs:DescribeLogGroups"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "mediaconnect:ManagedDescribeFlow",
+                "mediaconnect:ManagedAddOutput",
+                "mediaconnect:ManagedRemoveOutput"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:describeSubnets",
+                "ec2:describeNetworkInterfaces",
+                "ec2:createNetworkInterface",
+                "ec2:createNetworkInterfacePermission",
+                "ec2:deleteNetworkInterface",
+                "ec2:deleteNetworkInterfacePermission",
+                "ec2:describeSecurityGroups"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "mediapackage:DescribeChannel"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+10. Select **Review Policy**
+
+10. Select **Save Changes**
+
+#### AWS Elemental MediaConnect Role
+1. In the IAM Console, select **Roles** from the navigation pane and then the 'Create Role' button
+
+2. Under 'Trusted entity', select **AWS Service**, then select 'EC2' from the available services displayed (we have to change the trusted entity to MediaConnect after the role is created). Click **Next: Permissions** 
+
+3. Search for 'AmazonVPCFullAccess', tick the box to the left of the result to add this policy to the role.
+
+7. Click on **Next: Tags**
+
+8. Click on **Next: Review**
+
+9. In the **Role name** field, enter 'MediaConnectFullAccessToVPC'
+
+10. Select **Create role**
+
+*Now the role has been created with the correct policy, we need to change the trusted identity from ec2 to mediaconnect.*
+
+11. In the IAM Console, select **Roles** from the navigation pane and then search for the role just created in the search box 'MediaConnectFullAccessToVPC'. Click on the result displayed in the table
+
+![](readme_images/iam10.png)
+
+12. In the Role Summary page, select the **Trust Relationships** tab, then **Edit Trust Relationship**
+
+13. In the policy document, replace 'ec2' with 'mediaconnect'
+
+![](readme_images/iam11.png)
+
+14. Select **Update Trust Policy**
 
 #### Amazon EC2 (optional)
-.
+[under construction... not needed for this deployment anyway]
 
 ### AWS Lambda Functions Configuration
 We will create 6 Lambda functions in this section. Get the function code from the /lambdafunctions directory in this repository
