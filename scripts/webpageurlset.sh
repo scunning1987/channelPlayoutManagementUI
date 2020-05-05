@@ -1,6 +1,7 @@
 webpage="/etc/nginx/html/mcr/softpanel.html"
 javascript="/etc/nginx/html/mcr/js/pagescript.js"
-hlsURL="http://myserver33/myindex.m3u8"
+hlsURL="https://cdn.com/out/v1/hls/index.m3u8"
+api="https://api.execute-api.us-west-2.amazonaws.com/eng"
 
 # RTMP URL change
 old=$(cat $webpage | grep -o rtmp.*:1935)
@@ -40,5 +41,14 @@ old=$(cat $javascript | grep -o http.*m3u8)
 hlsarray=( $old )
 for hls in ${hlsarray[@]}; do
   oldslash=$(echo ${hls////\\/})
+  sed -i 's/'$oldslash'/'$new'/g' $javascript
+done
+
+# API Endpoint Update
+old=$(cat $javascript | grep -o http.*eng)
+new=$(echo ${api////\\/})
+apiarray=( $old )
+for apis in ${apiarray[@]}; do
+  oldslash=$(echo ${apis////\\/})
   sed -i 's/'$oldslash'/'$new'/g' $javascript
 done
