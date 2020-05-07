@@ -122,6 +122,8 @@ listen 1935;
  }
 }
 EOF
+# add dav method to nginx
+sed -i 's/http\ {/http\ {\n\ \ \ \ dav_methods PUT;/' /etc/nginx/nginx.conf
 nginx -t
 nginx -s reload
 systemctl restart supervisord
