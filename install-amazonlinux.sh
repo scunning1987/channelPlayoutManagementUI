@@ -120,7 +120,7 @@ listen 1935;
 EOF
 # add dav method to nginx
 sed -i 's/http\ {/http\ {\n\ \ \ \ dav_methods PUT;/' /etc/nginx/nginx.conf
-sed -i 's/location\ \/\ {/location\ \/\ {\n\ \ \ \ \ \ \ \ \ if\ ($request_method\ =\ OPTIONS\ )\ {add_header\ '\''Access-Control-Allow-Origin'\''\ '*'\'';\ add_header\ '\''Access-Control-Allow-Methods'\''\ '\''GET,\ PUT,\ OPTIONS'\'';\ return\ 200;}/' /etc/nginx/nginx.conf
+sed -i 's/location\ \/\ {/location\ \/\ {\n\ \ \ \ \ \ \ \ \ if\ ($request_method\ =\ OPTIONS\ )\ {add_header\ '\''Access-Control-Allow-Origin'\''\ '*'\'';\ add_header\ '\''Access-Control-Allow-Methods'\''\ '\''GET,\ PUT,\ OPTIONS'\'';\ return\ 200;}/1' /etc/nginx/nginx.conf
 sed -i 's/#user\ \ nobody/user\ \ root/' /etc/nginx/nginx.conf
 nginx -t
 nginx -s reload
