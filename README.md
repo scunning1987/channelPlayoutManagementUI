@@ -414,25 +414,15 @@ Example:
 http://ec2-52-24-130-125.us-west-2.compute.amazonaws.com/mcr/softpanel.html
 
 ### EC2 Server Configuration with API Endpoints
-There isn't much you need to do to configure the EC2 instance; except updating the API endpoint URL, and the HLS retrieval URL (if you don't have a HLS retrieval URL, then go through the MediaPackage setup instructions)
+For simplicity, a configuration dashboard is available for you to enter your target URL's, including API Gateway endpoint, and HLS endpoint.
 
-1. SSH into the EC2 instance (You can get connection instructions in the EC2 console, click on your EC2 instance, then the **Connect** button). You will need to use the PEM key that you specified when creating the ec2 instance 
+Using your EC2's public IP or FQDN, navigate to this page in your browser (replace the IP below with your public address):
+
+http://12.23.34.45/`dashboard-master.html`
 
 ![](readme_images/ecc7.png)
 
-2. Use vi to edit the webpages javascript file, and replace the **hlsURL** and **apiendpointurl** variables at the top of the page with your URL's.
-
-3. Save the file.
-
-```bash
-//pagescript.js
-  
-//hls url
-const hlsURL = "https://c4af3793bf76b11f.mediapackage.us-west-2.amazonaws.com/out/v1/4cf83c6c52104ef4843d77d2f8578c66/index.m3u8"
-
-//apiendpointurl
-const apiendpointurl = "https://940r6t3ds2.execute-api.us-west-2.amazonaws.com/eng/"
-```
+Click the **Update All** button once you've filled out all of the details
 
 *Note: you will need to refresh your browser for any of these changes to take effect on your dashboard page, and you may even require a cache clear*
 
