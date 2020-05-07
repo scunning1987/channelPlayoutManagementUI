@@ -10,7 +10,7 @@ systemctl mask firewalld
 sed -i 's/1/0/g' /etc/yum/pluginconf.d/priorities.conf
 # yum installs
 amazon-linux-extras install epel -y
-yum -y install vim tcpdump wget git
+yum -y install vim tcpdump wget git jq
 yum -y install nginx
 yum -y groupinstall "Development Tools"
 yum -y install pcre-devel openssl-devel libxml2-devel libxslt-devel gd-devel perl-ExtUtils-Embed GeoIP-devel
