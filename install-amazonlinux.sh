@@ -58,16 +58,16 @@ mkdir /var/cache/nginx
 systemctl start nginx
 systemctl status nginx
 #
+cd ../
 # FFMPEG DL and Install
 # download rpm's
 rpm --import http://li.nux.ro/download/nux/RPM-GPG-KEY-nux.ro
 rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm
 #
 yum -y install "libva"
-wget "ftp://ftp.pbone.net/mirror/ftp.centos.org/7.7.1908/os/x86_64/Packages/libva-1.8.3-1.el7.x86_64.rpm"
 yum -y install libEGL
 yum -y install libGL
-rpm -ivh libva-1.8.3-1.el7.x86_64.rpm 
+rpm -ivh rpm/libva-1.8.3-1.el7.x86_64.rpm 
 # install ffmpeg
 yum -y install ffmpeg
 ffmpeg
@@ -84,7 +84,6 @@ EOF
 systemctl enable supervisord
 systemctl start supervisord
 #
-cd ../
 # extract webpage
 sudo tar -xvf webpage.tar -C /
 # set correct public address in webpage
