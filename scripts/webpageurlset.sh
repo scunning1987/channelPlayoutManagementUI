@@ -4,6 +4,7 @@
 webpage="/etc/nginx/html/mcr/softpanel.html"
 javascript="/etc/nginx/html/mcr/js/pagescript.js"
 urlUpdates="/etc/nginx/html/urlUpdates"
+dashboardsetup="/etc/nginx/html/dashboard-client.html"
 
 ### function start
 
@@ -42,17 +43,26 @@ api_url_update() {
   # $1 = webpage
   # $2 = javascript
   # $3 = urlUpdates
+  # $4 = dashboardsetup
 
   apiURL=$(cat $3 | jq -r '.Updates.apiURL')
 
   # API Endpoint Update
-  old=$(cat $2 | grep -o http.*eng)
+  old=$(cat $2 | grep -o http.*/eng)
   new=$(echo ${apiURL////\\/})
   apiarray=( $old )
     for apis in ${apiarray[@]}; do
     oldslash=$(echo ${apis////\\/})
     sed -i 's/'$oldslash'/'$new'/g' $2
   done
+  old=$(cat $4 | grep -o http.*/eng)
+  new=$(echo ${apiURL////\\/})
+  apiarray=( $old )
+    for apis in ${apiarray[@]}; do
+    oldslash=$(echo ${apis////\\/})
+    sed -i 's/'$oldslash'/'$new'/g' $4
+  done
+
 }
 
 rtmp_ip_update() {
@@ -113,7 +123,7 @@ apiURL=$(cat $urlUpdates | jq -r '.Updates.apiURL')
 
 if [ $(echo $apiURL | grep -o -c http.*/eng) -eq 1 ]; then
   # the api gateway url is good
-  api_url_update $webpage $javascript $urlUpdates
+  api_url_update $webpage $javascript $urlUpdates $dashboardsetup
 else
   printf "apigwURL incorrect:" + apiURL
 fi
