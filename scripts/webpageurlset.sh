@@ -129,7 +129,7 @@ else
 fi
 
 # run rtmp ip update
-rtmp_ip_update
+rtmp_ip_update $webpage $javascript $urlUpdates
 
 # run ffmpeg streamer reset
 ffmpeg_reset $urlUpdates
