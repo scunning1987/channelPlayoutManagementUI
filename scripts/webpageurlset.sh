@@ -105,6 +105,15 @@ ffmpeg_reset() {
   fi
 }
 
+aws_acc_update() {
+  # $1 javascript
+  # $2 urlUpdates
+
+  awsACC=$(cat $2 | jq -r '.Updates.awsACC')
+  old=$(cat $1 | grep "const awsaccount" | cut -d "\"" -f 2 | tr -d "[:space:]")
+  sed -i '0,/'$old'/s/'$old'/'$awsACC'/' $1
+}
+
 ### functions end ###
 
 ### do some check on source urls
@@ -127,6 +136,14 @@ if [ $(echo $apiURL | grep -o -c http.*/eng) -eq 1 ]; then
 else
   printf "apigwURL incorrect:" + apiURL
 fi
+
+#run aws acc number update
+  awsACC=$(cat $urlUpdates | jq -r '.Updates.awsACC')
+  if [ "$awsACC" -eq "$awsACC" ] 2>/dev/null; then
+    aws_acc_update $javascript $urlUpdates
+  else
+    printf "AWS Account provided is not a number"
+  fi
 
 # run rtmp ip update
 rtmp_ip_update $webpage $javascript $urlUpdates
