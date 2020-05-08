@@ -80,7 +80,7 @@ The instructor will need to:
 }
 ```
 
-**IMPORTANT: The role specified in this inline policy, 'AssumeRoleLambda', will need to be created in each of the trainee accounts. See the section 'Setup Instructions for the Trainees's Account' for more details**
+**IMPORTANT: The role specified in this inline policy, 'AssumeRoleLambda', will need to be created in each of the trainee accounts. See the section 'Setup Instructions for the Trainees's Account' at the end of this document for more details**
 
 #### MediaLive Role
 
