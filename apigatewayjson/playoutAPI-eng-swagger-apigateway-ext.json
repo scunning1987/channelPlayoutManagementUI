@@ -4,7 +4,7 @@
     "version": "2020-04-24T19:59:46Z",
     "title": "playoutAPI"
   },
-  "host": "7h8bbsirvf.execute-api.us-west-2.amazonaws.com",
+  "host": "3yn8uu4qmf.execute-api.us-west-2.amazonaws.com",
   "basePath": "/eng",
   "schemes": [
     "https"
@@ -27,6 +27,12 @@
           },
           {
             "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "awsaccount",
             "in": "query",
             "required": false,
             "type": "string"
@@ -59,11 +65,11 @@
               "statusCode": "200"
             }
           },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+          },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
-          "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\"\n}"
-          },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
         }
@@ -105,10 +111,10 @@
               }
             }
           },
-          "passthroughBehavior": "when_no_match",
           "requestTemplates": {
             "application/json": "{\"statusCode\": 200}"
           },
+          "passthroughBehavior": "when_no_match",
           "type": "mock"
         }
       }
@@ -136,6 +142,12 @@
           },
           {
             "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "awsaccount",
             "in": "query",
             "required": false,
             "type": "string"
@@ -176,11 +188,11 @@
               }
             }
           },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"follow\": \"$input.params('follow')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+          },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
-          "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"follow\": \"$input.params('follow')\",\n  \"maxresults\": \"$input.params('maxresults')\"\n}"
-          },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
         }
@@ -222,10 +234,10 @@
               }
             }
           },
-          "passthroughBehavior": "when_no_match",
           "requestTemplates": {
             "application/json": "{\"statusCode\": 200}"
           },
+          "passthroughBehavior": "when_no_match",
           "type": "mock"
         }
       }
@@ -247,6 +259,12 @@
           },
           {
             "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "awsaccount",
             "in": "query",
             "required": false,
             "type": "string"
@@ -287,11 +305,11 @@
               }
             }
           },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+          },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
-          "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\"\n}"
-          },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
         }
@@ -333,10 +351,10 @@
               }
             }
           },
-          "passthroughBehavior": "when_no_match",
           "requestTemplates": {
             "application/json": "{\"statusCode\": 200}"
           },
+          "passthroughBehavior": "when_no_match",
           "type": "mock"
         }
       }
@@ -352,6 +370,12 @@
         "parameters": [
           {
             "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "awsaccount",
             "in": "query",
             "required": false,
             "type": "string"
@@ -386,11 +410,11 @@
               }
             }
           },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+          },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
-          "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"maxresults\": \"$input.params('maxresults')\"\n}"
-          },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
         }
@@ -432,10 +456,10 @@
               }
             }
           },
-          "passthroughBehavior": "when_no_match",
           "requestTemplates": {
             "application/json": "{\"statusCode\": 200}"
           },
+          "passthroughBehavior": "when_no_match",
           "type": "mock"
         }
       }
@@ -457,6 +481,12 @@
           },
           {
             "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "awsaccount",
             "in": "query",
             "required": false,
             "type": "string"
@@ -497,11 +527,11 @@
               }
             }
           },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+          },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
-          "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"maxresults\": \"$input.params('maxresults')\"\n}"
-          },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
         }
@@ -543,10 +573,10 @@
               }
             }
           },
-          "passthroughBehavior": "when_no_match",
           "requestTemplates": {
             "application/json": "{\"statusCode\": 200}"
           },
+          "passthroughBehavior": "when_no_match",
           "type": "mock"
         }
       }
@@ -562,6 +592,12 @@
         "parameters": [
           {
             "name": "bucket",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "awsaccount",
             "in": "query",
             "required": false,
             "type": "string"
@@ -590,11 +626,11 @@
               }
             }
           },
+          "requestTemplates": {
+            "application/json": "{\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+          },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
-          "requestTemplates": {
-            "application/json": "{\n  \"bucket\": \"$input.params('bucket')\"\n}"
-          },
           "contentHandling": "CONVERT_TO_TEXT",
           "type": "aws"
         }
@@ -636,10 +672,10 @@
               }
             }
           },
-          "passthroughBehavior": "when_no_match",
           "requestTemplates": {
             "application/json": "{\"statusCode\": 200}"
           },
+          "passthroughBehavior": "when_no_match",
           "type": "mock"
         }
       }
