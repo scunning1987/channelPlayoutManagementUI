@@ -4,7 +4,7 @@
     "version": "2020-04-24T19:59:46Z",
     "title": "playoutAPI"
   },
-  "host": "3yn8uu4qmf.execute-api.us-west-2.amazonaws.com",
+  "host": "nzv2hcrmpe.execute-api.us-west-2.amazonaws.com",
   "basePath": "/eng",
   "schemes": [
     "https"
@@ -627,7 +627,7 @@
             }
           },
           "requestTemplates": {
-            "application/json": "{\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsaccount\": \"$input.params('awsaccount')\"\n}"
+            "application/json": "{\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsacc\": \"$input.params('awsaccount')\"\n}"
           },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",

@@ -72,15 +72,15 @@ The instructor will need to:
         "Effect": "Allow",
         "Action": "sts:AssumeRole",
         "Resource": [
-            "arn:aws:iam::111111111111:role/AssumeRoleLambda",
-            "arn:aws:iam::222222222222:role/AssumeRoleLambda",
-            "arn:aws:iam::333333333333:role/AssumeRoleLambda"
+            "arn:aws:iam::111111111111:role/AWSLambdaAccessToS3AndEML",
+            "arn:aws:iam::222222222222:role/AWSLambdaAccessToS3AndEML",
+            "arn:aws:iam::333333333333:role/AWSLambdaAccessToS3AndEML"
         ]
     }
 }
 ```
 
-**IMPORTANT: The role specified in this inline policy, 'AssumeRoleLambda', will need to be created in each of the trainee accounts. See the section 'Setup Instructions for the Trainees's Account' at the end of this document for more details**
+**IMPORTANT: The role specified in this inline policy, 'AWSLambdaAccessToS3AndEML', will need to be created in each of the trainee accounts. See the section 'Setup Instructions for the Trainees's Account' at the end of this document for more details**
 
 #### MediaLive Role
 
@@ -494,6 +494,8 @@ Click the **Update All** button once you've filled out all of the details
 Services to deploy and configure:
 
 * IAM
+
+* MediaLive Creat Inputs & Sample Channel
 
 ---
 ### IAM
