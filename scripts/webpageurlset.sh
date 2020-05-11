@@ -139,7 +139,7 @@ fi
 
 #run aws acc number update
   awsACC=$(cat $urlUpdates | jq -r '.Updates.awsACC')
-  if [ "$awsACC" -eq "$awsACC" ] 2>/dev/null; then
+  if [ "$awsACC" -eq "$awsACC" ] 2>/dev/null || [ $(echo $awsACC | grep -c -o "master") -eq 1  ] 2>/dev/null; then
     aws_acc_update $javascript $urlUpdates
   else
     printf "AWS Account provided is not a number"
