@@ -4,7 +4,7 @@
     "version": "2020-04-24T19:59:46Z",
     "title": "playoutAPI"
   },
-  "host": "nzv2hcrmpe.execute-api.us-west-2.amazonaws.com",
+  "host": "wzih99wqh4.execute-api.us-west-2.amazonaws.com",
   "basePath": "/eng",
   "schemes": [
     "https"
@@ -55,6 +55,11 @@
             "description": "200 response",
             "schema": {
               "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
             }
           }
         },
@@ -62,7 +67,10 @@
           "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:eml_followCurrent/invocations",
           "responses": {
             "default": {
-              "statusCode": "200"
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
             }
           },
           "requestTemplates": {
@@ -105,7 +113,7 @@
             "default": {
               "statusCode": "200",
               "responseParameters": {
-                "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PUT'",
                 "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
                 "method.response.header.Access-Control-Allow-Origin": "'*'"
               }
