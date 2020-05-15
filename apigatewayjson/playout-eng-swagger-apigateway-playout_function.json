@@ -1,0 +1,232 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2020-05-15T15:55:35Z",
+    "title": "playout"
+  },
+  "host": "jl66fjfil5.execute-api.us-west-2.amazonaws.com",
+  "basePath": "/eng",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/playout": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "awsaccount",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "input",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "follow",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "channelid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "functiontorun",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bucket",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:301520684698:function:playout_Functions/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsaccount\": \"$input.params('awsaccount')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"functiontorun\": \"$input.params('functiontorun')\",\n  \"follow\": \"$input.params('follow')\"\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "awsaccount",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "maxresults",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "input",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "follow",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "channelid",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "functiontorun",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "bucket",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:301520684698:function:playout_Functions/invocations",
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsaccount\": \"$input.params('awsaccount')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"functiontorun\": \"$input.params('functiontorun')\",\n  \"follow\": \"$input.params('follow')\"\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "options": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS,PUT'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\"statusCode\": 200}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "type": "mock"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    }
+  }
+}
