@@ -46,9 +46,8 @@ api_url_update() {
   # $4 = dashboardsetup
 
   apiURL=$(cat $3 | jq -r '.Updates.apiURL')
-
   # API Endpoint Update
-  old=$(cat $2 | grep -o http.*/eng)
+  old=$(cat $2 | grep "const apiendpointurl" | cut -d "\"" -f 2)
   new=$(echo ${apiURL////\\/})
   apiarray=( $old )
     for apis in ${apiarray[@]}; do
@@ -127,10 +126,10 @@ else
   printf "hlsURL incorrect:"+$hlsURL
 fi
 
-### api gateway should start with http* and end with */eng
+### api gateway should start with http*
 apiURL=$(cat $urlUpdates | jq -r '.Updates.apiURL')
 
-if [ $(echo $apiURL | grep -o -c http.*/eng) -eq 1 ]; then
+if [ $(echo $apiURL | grep -o -c http.*) -eq 1 ]; then
   # the api gateway url is good
   api_url_update $webpage $javascript $urlUpdates $dashboardsetup
 else
