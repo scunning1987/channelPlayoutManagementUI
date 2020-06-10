@@ -284,9 +284,9 @@ In the below screenshot I'm doing a Find & Replace with my account number: 12341
 
 ![](readme_images/api3.png)
 
-8. To verify that the API endpoints correspond to your AWS Lambda functions, click on the PUT or GET 'Method' below each Resource, then select the AWS Lambda function hyperlink on the right hand side of the Execution flow. Clicking the link should open up your Lambda function.
+8. To verify that the API endpoints correspond to your AWS Lambda function, click on the PUT or GET 'Method' below the Resource, then select the AWS Lambda function hyperlink on the right hand side of the Execution flow. Clicking the link should open up your Lambda function.
 
-9. In order for API Gateway to be granted access to execute the AWS Lambda functions, you have to edit and save the function in the **Integration Request** execution settings. Under **Resources** click on the GET or PUT Method for the Resource, then select **Integration Request**. Click on the pencil next to the **Lambda Function** field, and then press the tickbox. Then click OK. API Gateway now has permissions to execute the Lambda function.
+9. In order for API Gateway to be granted access to execute the AWS Lambda function, you have to edit and save the function in the **Integration Request** execution settings. Under **Resources** click on the GET or PUT Method for the Resource, then select **Integration Request**. Click on the pencil next to the **Lambda Function** field, and then press the tickbox. Then click OK. API Gateway now has permissions to execute the Lambda function for this Method.
 
 ![](readme_images/api7.png)
 
@@ -294,7 +294,7 @@ In the below screenshot I'm doing a Find & Replace with my account number: 12341
 
 ![](readme_images/api9.png)
 
-10. Repeat the above step for all API Resources
+10. Repeat the above step for all API Methods that exist in the Resource (**GET, PUT, DELETE, POST**)
 
 10. To deploy the API, click on the root slash, then the **Actions** button, followed by **Deploy API**
 
