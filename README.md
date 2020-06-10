@@ -417,7 +417,7 @@ For simplicity, a configuration dashboard is available for you to enter your tar
 
 Using your EC2's public IP or FQDN, navigate to this page in your browser (replace the IP below with your public address):
 
-http://12.23.34.45/**dashboard-master.html**
+    Example:  http://12.23.34.45/dashboard-master.html
 
 ![](readme_images/ecc7.png)
 
