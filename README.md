@@ -357,7 +357,7 @@ This is what is will look like...
 
 14. Click **Add Tag**
 
-15. In the **Key** field, enter 'Name', in the **Value** field, enter the name for this server. For Example : Channel_Playout_Host. This name will appear in the EC2 console when it is deployed
+15. In the **Key** field, enter 'Name', in the **Value** field, enter the name for this server. For Example : Channel_Playout_Control. This name will appear in the EC2 console when it is deployed
 
 16. Click **Next: Configure Security Group**
 
@@ -417,7 +417,7 @@ For simplicity, a configuration dashboard is available for you to enter your tar
 
 Using your EC2's public IP or FQDN, navigate to this page in your browser (replace the IP below with your public address):
 
-http://12.23.34.45/`dashboard-master.html`
+http://12.23.34.45/**dashboard-master.html**
 
 ![](readme_images/ecc7.png)
 
