@@ -1,3 +1,5 @@
+**This version of the README is depracated, please use README.md for instructions on how to deploy**
+
 # Channel Playout Management UI
 This repo contains all of the tools and instructions necessary for you to deploy and build an HTML dashboard, capable of interfacing with, and creating a playout schedule for AWS Elemental MediaLive. This is what the finished product will look like!
 
@@ -223,7 +225,7 @@ Policy json code block:
 [under construction... not needed for this deployment anyway]
 
 ### AWS Lambda Functions Configuration
-We will create a Lambda function in this section. Get the function code from the **/lambdafunctions/workshop** directory in this repository, it is called **playout_Functions.zip**
+We will create 6 Lambda functions in this section. Get the function code from the /lambdafunctions directory in this repository
 
 1. Login to the AWS Management Console
 
@@ -233,40 +235,41 @@ We will create a Lambda function in this section. Get the function code from the
 
 4. Select **Author from scratch**
 
-5. Give the Function a Name, please call it : `playout_Functions`
+5. Give the Function a Name, please stick to this format:
 
-6. Use Code Runtime : `Python 3.7`
+| Function Name       | Runtime         | Zip file                |
+| ------------------- | --------------- | ----------------------- |
+| eml_immediateSwitch | python 3.7      | eml_immediateSwitch.zip
+| eml_followCurrent   | python 3.7      | eml_followCurrent.zip
+| eml_followCustom    | python 3.7      | eml_followCustom.zip
+| eml_followLast      | python 3.7      | eml_followLast.zip
+| eml_getSchedule     | python 3.7      | eml_getSchedule.zip
+| s3_getAssetList     | python 3.7      | s3_getAssetList.zip
 
-7. Under **Permissions**, select 'Use an existing role', and then choose the role created earlier : **AWSLambdaAccessToS3AndEML**
+6. Under **Permissions**, select 'Use an existing role', and then choose the role created earlier : **AWSLambdaAccessToS3AndEML**
 
 ![](readme_images/lam1.png)
 
-8. Select **Create Function**
+7. Select **Create Function**
 
-9. Under the **Function Code** section, change the 'Code entry type' to **Upload a zip file**. Select the Upload button and browse to the ZIP file for this function.
+8. Under the **Function Code** section, change the 'Code entry type' to **Upload a zip file**. Select the Upload button and browse to the ZIP file for this function.
 
 ![](readme_images/lam2.png)
 
-10. After the code has imported, scroll down to the **Basic Settings** section, press the 'Edit' button and change the Timeout value to 2 minutes.
+9. After the code has imported, scroll down to the **Basic Settings** section, press the 'Edit' button and change the Timeout value to 2 minutes.
 
 ![](readme_images/lam3.png)
 
-11. Select the **Save** button and move on to the next section.
+10. Select the **Save** button and return to the Functions dashboard.
+
+11. Repeat steps 3 to 10 for all of the functions
 
 ### Amazon API Gateway Configuration
-1. Navigate to the /apigatewayjson directory of this repo.
-
-1. Open the 'playout-eng-swagger-apigateway-playout_function.json' file in your favorite text editor (Notepad++, TextWrangler, etc...). Do a Find and Replace on **all** occurrences of : '112233445566' Replace this number with your AWS account number that is hosting the AWS Lambda Functions (without hyphens '-'). There should be 2 occurrences.
+1. Open the 'playoutAPI-eng-swagger-apigateway-ext.json' file in the apigatewayjson directory of this repo. Do a Find and Replace on all occurrences of : '112233445566' Replace this number with your AWS account number that is hosting the AWS Lambda Functions. There should be 6 occurrences.
 
 *You can find your account number in the AWS console, under the account drop-down menu*
 
 ![](readme_images/api1.png)
-
-In the below screenshot I'm doing a Find & Replace with my account number: 123412341234. Do the same for yours
-
-![](readme_images/api1b.png)
-
-**No need to save the file, just do a `Ctrl+A` or copy all command to copy the contents of the json file to your clipboard**
 
 2. Login to the AWS Management Console
 
@@ -278,7 +281,7 @@ In the below screenshot I'm doing a Find & Replace with my account number: 12341
 
 ![](readme_images/api2.png)
 
-6. Under Choose the protocol, select **REST**, and under Create new API, select **Import from Swagger or Open API 3**. Then paste the contents from the edited 'playout-eng-swagger-apigateway-playout_function.json' file
+6. Under Choose the protocol, select **REST**, and under Create new API, select **Import from Swagger or Open API 3**. Then paste the contents from the edited 'playoutAPI-eng-swagger-apigateway-ext.json' file
 
 7. Select **Import**
 

@@ -76,7 +76,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:301520684698:function:playout_Functions/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:playout_Functions/invocations",
           "responses": {
             "default": {
               "statusCode": "200",
@@ -159,7 +159,7 @@
           }
         },
         "x-amazon-apigateway-integration": {
-          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:301520684698:function:playout_Functions/invocations",
+          "uri": "arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:112233445566:function:playout_Functions/invocations",
           "responses": {
             "default": {
               "statusCode": "200",
