@@ -1,3 +1,8 @@
+## Update History
+| Date         | Update Notes |
+| 2020-06-15   | Added SCTE35 insertion functionality into the Dashboard |
+
+
 # Channel Playout Management UI
 This repo contains all of the tools and instructions necessary for you to deploy and build an HTML dashboard, capable of interfacing with, and creating a playout schedule for AWS Elemental MediaLive. This is what the finished product will look like!
 
