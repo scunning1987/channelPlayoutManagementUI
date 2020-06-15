@@ -4,7 +4,7 @@
     "version": "2020-05-15T15:55:35Z",
     "title": "playout"
   },
-  "host": "jl66fjfil5.execute-api.us-west-2.amazonaws.com",
+  "host": "h0m6n44mab.execute-api.us-west-2.amazonaws.com",
   "basePath": "/eng",
   "schemes": [
     "https"
@@ -115,6 +115,12 @@
             "type": "string"
           },
           {
+            "name": "duration",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "input",
             "in": "query",
             "required": false,
@@ -169,7 +175,7 @@
             }
           },
           "requestTemplates": {
-            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsaccount\": \"$input.params('awsaccount')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"functiontorun\": \"$input.params('functiontorun')\",\n  \"follow\": \"$input.params('follow')\"\n}"
+            "application/json": "{\n  \"channelid\": \"$input.params('channelid')\",\n  \"input\": \"$input.params('input')\",\n  \"bucket\": \"$input.params('bucket')\",\n  \"awsaccount\": \"$input.params('awsaccount')\",\n  \"maxresults\": \"$input.params('maxresults')\",\n  \"functiontorun\": \"$input.params('functiontorun')\",\n  \"follow\": \"$input.params('follow')\",\n  \"duration\": \"$input.params('duration')\"\n}"
           },
           "passthroughBehavior": "when_no_templates",
           "httpMethod": "POST",
