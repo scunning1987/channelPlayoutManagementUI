@@ -1,6 +1,7 @@
 ## Update History
 | Date         | Update Notes |
 |--------------|--------------|
+| 2020-06-08   | Added Live switching functionality into the Dashboard |
 | 2020-06-15   | Added SCTE35 insertion functionality into the Dashboard |
 
 
