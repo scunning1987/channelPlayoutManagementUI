@@ -3,6 +3,7 @@
 |--------------|--------------|
 | 2020-06-08   | Added Live switching functionality into the Dashboard |
 | 2020-06-15   | Added SCTE35 insertion functionality into the Dashboard |
+| 2020-08-17   | Added support for Elemental Link input, and static file (slate) switching on the LIVE tab |
 
 
 # Channel Playout Management UI
